@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pricing Info</title>
+    <style>
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        width: 300px;
+        margin: 0;
+        padding: 20px;
+        background-color: #f8f9fa;
+        color: #343a40;
+      }
+      .container {
+        background-color: #ffffff;
+        border-radius: 8px;
+        padding: 20px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      }
+      h1 {
+        font-size: 18px;
+        margin-top: 0;
+        margin-bottom: 20px;
+        color: #495057;
+      }
+      #message,
+      #free-plan-status {
+        font-size: 14px;
+        line-height: 1.5;
+        margin-bottom: 10px;
+        transition: opacity 0.3s ease;
+      }
+      #message.loading::after {
+        content: "...";
+        animation: ellipsis 1.5s infinite;
+      }
+      @keyframes ellipsis {
+        0% {
+          content: ".";
+        }
+        33% {
+          content: "..";
+        }
+        66% {
+          content: "...";
+        }
+      }
+      .status-icon {
+        display: inline-block;
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        margin-right: 8px;
+      }
+      .status-icon.checking {
+        background-color: #ffd43b;
+      }
+      .status-icon.found {
+        background-color: #51cf66;
+      }
+      .status-icon.not-found {
+        background-color: #ff6b6b;
+      }
+      #price-range {
+        font-size: 14px;
+        margin-top: 10px;
+        color: #495057;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Pricing Info</h1>
+      <div id="message" class="loading">
+        <span class="status-icon checking"></span>Checking for pricing page
+      </div>
+      <div id="free-plan-status"></div>
+      <div id="price-range"></div>
+    </div>
+    <script src="popup.js"></script>
+  </body>
+</html>
